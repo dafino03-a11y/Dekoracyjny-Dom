@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dekoracyjny Dom</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#faf8f3;color:#29251f;font-family:Arial,sans-serif}
+header{padding:24px 22px 15px;border-bottom:1px solid #ebe6dc}
+.logo{font-family:Georgia,serif;font-size:25px;font-weight:bold}
+main{max-width:700px;margin:auto;padding:22px}
+h1{font:36px Georgia,serif;margin:0 0 10px}
+p{color:#716b62;line-height:1.5}
+.search{width:100%;padding:17px 20px;margin:20px 0;border:1px solid #ddd7cd;border-radius:30px;background:white;font-size:16px}
+.info{background:#e4ecd9;padding:12px;text-align:center;border-radius:25px;color:#43513c;margin-bottom:28px}
+h2{font:27px Georgia,serif}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:white;border-radius:22px;overflow:hidden;box-shadow:0 3px 15px #0000000b}
+.pic{height:145px;background:linear-gradient(135deg,#e8dfd1,#d5c8b6);display:flex;align-items:center;justify-content:center;font-size:45px}
+.card b{display:block;padding:15px;font-size:17px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fffdf9;border-top:1px solid #e8e2d8;display:flex;justify-content:space-around;padding:11px 3px}
+nav span{font-size:13px;color:#625e56}
+</style>
+</head>
+<body>
+<header><div class="logo">Dekoracyjny Dom</div></header>
+<main>
+<h1>Witaj, Agnieszko</h1>
+<p>Piękne dodatki do spokojnych, przytulnych wnętrz.</p>
+<input class="search" placeholder="🔍  Szukaj dekoracji...">
+<div class="info">Darmowy odbiór osobisty · Nowości</div>
+
+<h2>Kategorie</h2>
+<div class="grid">
+<div class="card"><div class="pic">🛋️</div><b>Poszewki</b></div>
+<div class="card"><div class="pic">🪡</div><b>Obrusy</b></div>
+<div class="card"><div class="pic">🏺</div><b>Ceramika</b></div>
+<div class="card"><div class="pic">🏠</div><b>Dodatki</b></div>
+</div>
+</main>
+
+<nav>
+<span>⌂<br>Start</span>
+<span>⌕<br>Szukaj</span>
+<span>♡<br>Ulubione</span>
+<span>🛒<br>Koszyk</span>
+</nav>
+</body>
+</html>
