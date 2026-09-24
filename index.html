@@ -25,30 +25,95 @@ nav button{background:none;color:#625b52;padding:2px;font-weight:400;font-size:1
 .total{font-size:22px;font-weight:700}.choice{display:block;background:#fff;padding:13px;border:1px solid #e4d8c9;border-radius:16px;margin:9px 0}
 .choice input{width:auto;margin-right:8px}.note{font-size:13px;color:#76695e}.success{text-align:center;padding:34px 18px}.check{font-size:56px}
 @media(max-width:420px){.product img,.placeholder{height:330px}}
+
+/* Strona główna – styl z początku projektu */
+.home-wrap{max-width:680px;margin:auto;padding:14px 18px 28px}
+.home-welcome{font-size:15px;color:#7a6f64;margin:6px 2px 12px}
+.hero{position:relative;border-radius:28px;overflow:hidden;min-height:440px;background:#e8ddcf;box-shadow:0 12px 34px #70552d20;margin-bottom:26px}
+.hero img{width:100%;height:440px;object-fit:cover;display:block}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(37,29,23,.64) 0%,rgba(37,29,23,.18) 52%,rgba(37,29,23,.02) 100%)}
+.hero-copy{position:absolute;left:24px;right:24px;bottom:25px;z-index:2;color:white}
+.hero-copy h1{font-size:42px;line-height:1.02;margin:0 0 10px;color:white}
+.hero-copy p{margin:0 0 18px;color:#fffdf8;font-size:16px;max-width:440px}
+.hero-copy button{background:#fffaf3;color:#45392f;padding:13px 20px}
+.home-title{font-size:30px;margin:30px 0 14px}
+.collection-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.collection-card{background:#fffaf4;border:1px solid #e6dacb;border-radius:22px;padding:20px 14px;text-align:left;color:#443a31;font:700 20px Georgia,serif;min-height:90px;box-shadow:0 5px 18px #70552d10}
+.collection-card span{display:block;font:400 12px Arial,sans-serif;color:#85786c;margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+.home-search{margin:22px 0 8px}
+.home-strip{display:flex;gap:8px;overflow:auto;padding:2px 0 5px}
+.home-strip button{flex:0 0 auto;background:#e8eadf;color:#58614b;font-weight:600}
+.featured-head{display:flex;align-items:end;justify-content:space-between;gap:12px}
+.featured-head p{margin:0 0 16px;color:#82766a;font-size:13px}
+#home .product{margin-top:14px}
+#home .product img{height:410px}
+#home .product .body h3{font-size:23px}
+.inspiration-title{margin-top:34px}
+@media(max-width:420px){
+  .hero,.hero img{height:400px;min-height:400px}
+  .hero-copy h1{font-size:38px}
+  .collection-card{min-height:86px}
+  #home .product img{height:355px}
+}
+
 </style>
 </head>
 <body>
 <header><div class="logo">Dekoracyjny Dom</div></header>
 
-<section id="home" class="view active"><main class="wrap">
-<h1>Witaj, Agnieszko</h1><p class="lead">Piękne dodatki, które tworzą ciepły i przytulny dom.</p>
-<input class="search" id="search" placeholder="🔍 Szukaj dekoracji..." oninput="renderProducts()">
-<div class="promo">Nowości · Ostatnie sztuki</div>
-<h2>Kategorie</h2><div class="chips"><span class="chip">Poszewki</span><span class="chip">Obrusy</span><span class="chip">Ceramika</span><span class="chip">Dodatki</span></div>
-<h2>Produkty</h2><div id="products"></div>
-<div class="panel">
-<h2>Powiadomienia o nowościach</h2>
-<p class="lead">Zapisz się, a damy Ci znać o nowych dekoracjach, ostatnich sztukach i promocjach.</p>
-<input id="newsletterEmail" type="email" placeholder="Twój e-mail">
-<label class="choice"><input id="newsletterConsent" type="checkbox"> Chcę otrzymywać wiadomości o nowościach i promocjach.</label>
-<button class="wide" onclick="subscribeNewsletter()">Zapisz mnie</button>
-<p id="newsletterInfo" class="note"></p>
+<section id="home" class="view active">
+<main class="home-wrap">
+<p class="home-welcome">Witaj, Agnieszko</p>
+
+<section class="hero">
+  <img src="" data-img="7" alt="Dekoracje ceramiczne Dekoracyjny Dom">
+  <div class="hero-copy">
+    <h1>Magia małych rzeczy</h1>
+    <p>Wyjątkowe dekoracje, które tworzą ciepły i przytulny dom.</p>
+    <button onclick="filterCategory('Ceramika')">Odkryj ceramikę</button>
+  </div>
+</section>
+
+<div class="home-search">
+  <input class="search" id="search" placeholder="🔍 Szukaj dekoracji..." oninput="renderProducts()">
 </div>
-<h2>Inspiracje</h2><div class="insp">
-<figure><img src="" data-img="0"><figcaption>Przytulny ogród</figcaption></figure>
-<figure><img src="" data-img="1"><figcaption>Wiosna w ogrodzie</figcaption></figure>
-<figure><img src="" data-img="2"><figcaption>Kwiecisty zakątek</figcaption></figure>
-</div></main></section>
+
+<div class="home-strip">
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Nowości</button>
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Ostatnie sztuki</button>
+</div>
+
+<h2 class="home-title">Wybierz swoją kolekcję</h2>
+<div class="collection-grid">
+  <button class="collection-card" onclick="filterCategory('Ceramika')">Ceramika<span>zobacz kolekcję</span></button>
+  <button class="collection-card" onclick="filterCategory('Obrusy')">Obrusy<span>zobacz kolekcję</span></button>
+  <button class="collection-card" onclick="filterCategory('Dodatki')">Dodatki<span>zobacz kolekcję</span></button>
+  <button class="collection-card" onclick="filterCategory('Poszewki')">Poszewki<span>zobacz kolekcję</span></button>
+</div>
+
+<div class="featured-head">
+  <h2 class="home-title">Polecane dekoracje</h2>
+  <p>Wybrane dla Ciebie</p>
+</div>
+<div id="products"></div>
+
+<h2 class="home-title inspiration-title">Inspiracje</h2>
+<div class="insp">
+  <figure><img src="" data-img="0"><figcaption>Przytulny ogród</figcaption></figure>
+  <figure><img src="" data-img="1"><figcaption>Wiosna w ogrodzie</figcaption></figure>
+  <figure><img src="" data-img="2"><figcaption>Kwiecisty zakątek</figcaption></figure>
+</div>
+
+<div class="panel">
+  <h2>Powiadomienia o nowościach</h2>
+  <p class="lead">Zapisz się, a damy Ci znać o nowych dekoracjach, ostatnich sztukach i promocjach.</p>
+  <input id="newsletterEmail" type="email" placeholder="Twój e-mail">
+  <label class="choice"><input id="newsletterConsent" type="checkbox"> Chcę otrzymywać wiadomości o nowościach i promocjach.</label>
+  <button class="wide" onclick="subscribeNewsletter()">Zapisz mnie</button>
+  <p id="newsletterInfo" class="note"></p>
+</div>
+</main>
+</section>
 
 <section id="cart" class="view"><main class="wrap"><h1>Koszyk</h1>
 <div class="panel"><div id="cartItems"></div>
@@ -141,6 +206,10 @@ const products=[
 {name:'Ceramiczne domki – czerwone wieżyczki',price:199,cat:'Ceramika',img:IMG[7]}];
 let cart=JSON.parse(localStorage.getItem('dd_cart2')||'[]'), discount=0;
 const money=n=>n.toFixed(2).replace('.',',')+' zł';
+function filterCategory(cat){
+ const s=document.getElementById('search');
+ if(s){s.value=cat;renderProducts();document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});}
+}
 function renderProducts(){
  const q=(document.getElementById('search')?.value||'').toLowerCase();
  document.getElementById('products').innerHTML=products.map((p,i)=>({p,i})).filter(x=>(x.p.name+' '+x.p.cat).toLowerCase().includes(q)).map(({p,i})=>`
